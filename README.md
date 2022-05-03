@@ -4,10 +4,35 @@
 
 #### Rotas
 
+##### User
+
+| Endpoint        | Metodo | Função                          |
+| --------------- | ------ | ------------------------------- |
+| `/api/register` | `POST` | Faz registro de um novo usuario |
+| `/api/login`    | `POST` | Faz login de um usuario         |
+| `/api/logout`   | `POST` | Faz logout de um novo usuario   |
+
+Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser passado o token de autenticação que é retornado na rota de login ou de registro
+
+```
+//Para rota de registro:
+{
+	"name": "teste 2",
+	"email": "teste2@teste.com",
+	"password": "teste1234"
+}
+
+//Para rota de login:
+{
+	"email": "teste@teste.com",
+	"password": "teste1234"
+}
+```
+
 #### TODO
 
--   [ ] cadastro de usuário do sistema (signup)
--   [ ] login com JWT de usuário cadastrado (login)
+-   [x] cadastro de usuário do sistema (signup)
+-   [x] login com JWT de usuário cadastrado (login)
 -   clientes:
     -   [ ] listar todos os clientes cadastrados (index)
         -   [ ] apenas dados principais devem vir aqui;
