@@ -29,6 +29,43 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
 }
 ```
 
+##### Product
+
+| Endpoint             | Metodo   | Função                          |
+| -------------------- | -------- | ------------------------------- |
+| `/api/products`      | `GET`    | lista todos os produtos         |
+| `/api/products/{id}` | `GET`    | lista detalhadamente um produto |
+| `/api/products`      | `POST`   | cria um produto                 |
+| `/api/products/{id}` | `PATCH`  | atualiza um produto             |
+| `/api/products/{id}` | `DELETE` | deleta um produto               |
+
+-   Todas as rotas de produto são protegidas,então deve-se passar pelo header o token de acesso recebido quando realiza-se login.
+-   Os produtos serão livros então os dados necessários são relacionados a isso.
+-   A rota de criação de um produto deve enviar o seguinte body:
+
+```
+{
+	"name": "teste 4",
+	"author": "author name",
+	"year": "2011",
+	"quantity": 10,
+	"ref_code": "124.325.skd-46",
+	"price": "55.95"
+}
+```
+
+-   A rota de atualização de um produto deve enviar o seguinte body:
+
+```
+{
+	"name": "crepusculo",
+	"author": "author name",
+	"year": "2011",
+	"quantity": 10,
+	"price": "55.95"
+}
+```
+
 #### TODO
 
 -   [x] cadastro de usuário do sistema (signup)
@@ -44,14 +81,16 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
     -   [ ] editar um(a) cliente (update)
     -   [ ] excluir um(a) cliente e vendas a ele(a) (delete)
 -   produtos:
-    -   [ ] listar todos os produtos cadastrados (index)
-        -   [ ] apenas dados principais devem vir aqui;
-        -   [ ] ordenar alfabeticamente.
-    -   [ ] detalhar um produto (show)
-    -   [ ] criar um produto (store)
-    -   [ ] editar um produto (update)
-    -   [ ] exclusão lógica ("soft delete") de um produto (delete)
+    -   [x] listar todos os produtos cadastrados (index)
+        -   [x] apenas dados principais devem vir aqui;
+        -   [x] ordenar alfabeticamente.
+    -   [x] detalhar um produto (show)
+    -   [x] criar um produto (store)
+    -   [x] editar um produto (update)
+    -   [x] exclusão lógica ("soft delete") de um produto (delete)
 -   vendas:
     -   [ ] registrar venda de 1 produto a 1 cliente (store)
 
 #### Dificuldades encontradas
+
+-   Validação de dados, principalmente de dados que são numericos ou datas
