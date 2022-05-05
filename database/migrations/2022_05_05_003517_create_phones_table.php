@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->string('number');
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('customer_id');
 
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
     }
 

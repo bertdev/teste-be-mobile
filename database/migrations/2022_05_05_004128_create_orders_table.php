@@ -18,11 +18,11 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('unit_price');
             $table->string('total_price');
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('customer_id');
             $table->uuid('product_id');
             $table->timestamps();
 
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products');
         });
     }

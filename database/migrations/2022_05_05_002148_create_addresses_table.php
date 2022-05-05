@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('complement')->nullable();
             $table->string('city');
             $table->string('state');
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('customer_id');
 
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
     }
 

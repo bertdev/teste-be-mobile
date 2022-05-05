@@ -71,15 +71,15 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
 -   [x] cadastro de usuário do sistema (signup)
 -   [x] login com JWT de usuário cadastrado (login)
 -   clientes:
-    -   [ ] listar todos os clientes cadastrados (index)
-        -   [ ] apenas dados principais devem vir aqui;
-        -   [ ] ordenar pelo id.
-    -   [ ] detalhar um(a) cliente e vendas a ele(a) (show)
-        -   [ ] trazer as vendas mais recentes primeiro;
+    -   [x] listar todos os clientes cadastrados (index)
+        -   [x] apenas dados principais devem vir aqui;
+        -   [x] ordenar pelo id.
+    -   [x] detalhar um(a) cliente e vendas a ele(a) (show)
+        -   [x] trazer as vendas mais recentes primeiro;
         -   [ ] possibilidade de filtrar as vendas por mês + ano.
-    -   [ ] adicionar um(a) cliente (store)
-    -   [ ] editar um(a) cliente (update)
-    -   [ ] excluir um(a) cliente e vendas a ele(a) (delete)
+    -   [x] adicionar um(a) cliente (store)
+    -   [x] editar um(a) cliente (update)
+    -   [x] excluir um(a) cliente e vendas a ele(a) (delete)
 -   produtos:
     -   [x] listar todos os produtos cadastrados (index)
         -   [x] apenas dados principais devem vir aqui;
@@ -90,7 +90,7 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
     -   [x] exclusão lógica ("soft delete") de um produto (delete)
 -   vendas:
 
-    -   [ ] registrar venda de 1 produto a 1 cliente (store)
+    -   [x] registrar venda de 1 produto a 1 cliente (store)
 
 -   se tiver tempo refatorar o softdelete dos produtos pelo softdelete fornecido pelo laravel
 

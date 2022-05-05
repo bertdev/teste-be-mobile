@@ -12,12 +12,21 @@ class Address extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'name',
-        'cpf'
+        'street',
+        'number',
+        'district',
+        'complement',
+        'city',
+        'state',
+        'customer_id'
     ];
 
-    public function client()
+    protected $hidden = [
+        'customer_id'
+    ];
+
+    public function customer()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Customer::class);
     }
 }

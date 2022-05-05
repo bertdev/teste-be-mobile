@@ -13,7 +13,7 @@ class Order extends Model
         'quantity',
         'unit_price',
         'total_price',
-        'client_id',
+        'customer_id',
         'product_id'
     ];
 
@@ -21,9 +21,9 @@ class Order extends Model
         'product_id' => 'string',
     ];
 
-    public function client()
+    public function customer()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(Customer::class);
     }
 
     public function product()
