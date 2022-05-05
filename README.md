@@ -89,7 +89,10 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
     -   [x] editar um produto (update)
     -   [x] exclusão lógica ("soft delete") de um produto (delete)
 -   vendas:
+
     -   [ ] registrar venda de 1 produto a 1 cliente (store)
+
+-   se tiver tempo refatorar o softdelete dos produtos pelo softdelete fornecido pelo laravel
 
 #### Dificuldades encontradas
 
