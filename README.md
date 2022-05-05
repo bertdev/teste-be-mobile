@@ -11,6 +11,8 @@
 
 #### Como rodar?
 
+---
+
 1. Clone o repositório para a sua máquina
 2. Dentro da pasta raiz do projeto instale as dependências com `composer install`
 3. Crie um arquivo `.env` com base no `.env.example` e preencha as váriaveis de ambiente conforme for necessário
@@ -22,6 +24,8 @@
 Recomendo testar as rotas usando como base o arquivo de rotas do insomnia que se encontra na pasta `docs` do projeto, basta importa-las no seu insomnia e terá as rotas para testar.
 
 #### Rotas
+
+---
 
 ##### User
 
@@ -126,6 +130,8 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
 
 #### TODO
 
+---
+
 -   [x] cadastro de usuário do sistema (signup)
 -   [x] login com JWT de usuário cadastrado (login)
 -   clientes:
@@ -152,12 +158,16 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
 
 #### Dificuldades encontradas
 
+---
+
 -   Validação de dados, principalmente de dados que são numericos ou datas.
 -   Manipulação de muitas tabelas usando o eloquent.
 -   Como foi falado na nossa conversa laravel não é minha stack principal então acredito que isso trouxe uma leve dificuldade também.
 -   Definir como seria a modelagem de cada tabela.
 
 #### Pontos de melhorias para o projeto
+
+---
 
 -   Implementar a filtragem de vendas por mês + ano.
 -   Refatorar o soft delete de produtos para utilizar a funcionalidade fornecida pelo eloquent para isso no lugar de utilizar uma feita à mão.
