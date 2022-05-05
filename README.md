@@ -1,6 +1,25 @@
 ## Teste be mobile
 
+-   [Como rodar](#como-rodar)
+-   [Rotas](#rotas)
+    -   [User](#user)
+    -   [Product](#product)
+    -   [Customer](#customer)
+-   [TODO](#todo)
+-   [Dificuldades encontradas](#dificuldades-encontradas)
+-   [Pontos de melhoria](#pontos-de-melhorias-para-o-projeto)
+
 #### Como rodar?
+
+1. Clone o repositório para a sua máquina
+2. Dentro da pasta raiz do projeto instale as dependências com `composer install`
+3. Crie um arquivo `.env` com base no `.env.example` e preencha as váriaveis de ambiente conforme for necessário
+   3.1 Se for utilizar o banco de dados com base no arquivo `docker-compose.yml` preencha as váriaveis de ambiente relacionadas a db connection com base nas informações do arquivo `docker-compose.yml`
+   3.2 Rode o comando `docker-compose up -d` para criar um container com base no `docker-compose.yml`
+4. Rode o comando `php artisan migrate` para rodar as migrations necessárias para o banco de dados
+5. Rode o comando `php artisan serve` para subir o servidor local
+
+Recomendo testar as rotas usando como base o arquivo de rotas do insomnia que se encontra na pasta `docs` do projeto, basta importa-las no seu insomnia e terá as rotas para testar.
 
 #### Rotas
 
@@ -66,6 +85,45 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
 }
 ```
 
+##### Customer
+
+| Endpoint                | Metodo   | Função                         |
+| ----------------------- | -------- | ------------------------------ |
+| `/api/customers`        | `GET`    | lista todos os clientes        |
+| `/api/customers/{id}`   | `GET`    | detalha um cliente             |
+| `/api/customers`        | `POST`   | cria um cliente                |
+| `/api/customers/{id}`   | `PATCH`  | atualiza um cliente            |
+| `/api/customers/{id}`   | `DELETE` | deleta um cliente              |
+| `/api/customers/orders` | `POST`   | cria uma venda para um cliente |
+
+-   Todas as rotas de cliente são protegidas,então deve-se passar pelo header o token de acesso recebido quando realiza-se login.
+-   A rota de criação de um cliente deve enviar o seguinte body:
+
+```
+{
+	"name": "customer teste",
+	"cpf": "111.111.111-11",
+	"address": {
+		"street": "rua teste",
+		"number": "32",
+		"district": "bairro teste",
+		"complement": "",
+		"city": "cidade teste",
+		"state": "estado teste"
+	},
+	"phoneNumber": "(88) 99999-9999"
+}
+```
+
+-   A rota de atualização de um cliente deve enviar o seguinte body:
+
+```
+{
+	"name": "customer teste 2",
+	"cpf": "111.111.111-11"
+}
+```
+
 #### TODO
 
 -   [x] cadastro de usuário do sistema (signup)
@@ -92,8 +150,17 @@ Obs: As rotas de registro e de login recebem um body e a rota de logout deve ser
 
     -   [x] registrar venda de 1 produto a 1 cliente (store)
 
--   se tiver tempo refatorar o softdelete dos produtos pelo softdelete fornecido pelo laravel
-
 #### Dificuldades encontradas
 
--   Validação de dados, principalmente de dados que são numericos ou datas
+-   Validação de dados, principalmente de dados que são numericos ou datas.
+-   Manipulação de muitas tabelas usando o eloquent.
+-   Como foi falado na nossa conversa laravel não é minha stack principal então acredito que isso trouxe uma leve dificuldade também.
+-   Definir como seria a modelagem de cada tabela.
+
+#### Pontos de melhorias para o projeto
+
+-   Implementar a filtragem de vendas por mês + ano.
+-   Refatorar o soft delete de produtos para utilizar a funcionalidade fornecida pelo eloquent para isso no lugar de utilizar uma feita à mão.
+-   Refatorar as validações de rotas que recebem body, criando uma custom request e fazendo melhores validações dentro dessas custom requests.
+-   Melhorar a lógica de criação de vendas, realizando validação da quantidade do produto que está sendo comprado verificando se a quantidade solicitada pode ser atendida.
+-   Permitir a atualização de mais dados do cliente, como endereço e telefone.
